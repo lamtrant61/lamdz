@@ -19,7 +19,7 @@ function sleep(ms) {
 map_layer = L.layerGroup()
 L.tileLayer('https://tiles.windy.com/tiles/v10.0/darkmap/{z}/{x}/{y}.png', {
  	attribution: ' <a href="http://amo.gov.vn/about/">&copy; AMO_VN </a>',
-maxZoom: 6,
+maxZoom: 11,
 minZoom: 6,
 }).addTo(map_layer);
 
@@ -99,8 +99,7 @@ function create_img(){
 			}
 			grid.push(grid_i);
 		}
-		canvas_layer.clearLayers();
-		d3.text('./src/default.asc', function (asc) {
+		d3.text('./data/default.asc', function (asc) {
 		    let s = L.ScalarField.fromASCIIGrid(asc);
 		    s.zs = img_data;
 		    s.params.zs = img_data;
@@ -137,14 +136,15 @@ function create_img(){
 
 async function updateImg(){
 	document.getElementById("cTime").innerText = String(curTime)+" UTC\n"+String(fTime_[currentSet]);
-	await sleep(50);
 	create_img();
+	await sleep(50);
 	updatePolygon();
 	Loop();
 }
 
-function clearPolygon(){
+function clear_layer(){
 	polygon_layer.clearLayers();
+	canvas_layer.clearLayers();
 }
 
 async function Loop(){
@@ -155,7 +155,7 @@ async function Loop(){
 			currentSet+=1;
 		}
 		await sleep(1500);
-		clearPolygon();
+		clear_layer();
 		await sleep(400);
 		updateImg();
 
