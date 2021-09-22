@@ -40,7 +40,7 @@ h1 {
 	width: 65px;
 	height: 65px;
 	bottom: 3%;
-	left: 5%;
+	left: calc(5% + 80px);
 	z-index: 9999;
 	border: 3px solid #0F7011;
 	position:fixed;
@@ -50,9 +50,36 @@ h1 {
 
 }
 
-#play_pause:hover {
-  background-color: #1C2833;
+.button_a:hover {
+	background-color: #1C2833;
 }
+
+#back {
+	width: 65px;
+	height: 65px;
+	bottom: 3%;
+	left: 5%;
+	z-index: 9999;
+	border: 3px solid #0F7011;
+	position:fixed;
+	cursor: pointer;
+	background: url(../image/back.png) no-repeat center;
+	background-color: #808B96;
+}
+
+#next {
+	width: 65px;
+	height: 65px;
+	bottom: 3%;
+	left: calc(5% + 160px);
+	z-index: 9999;
+	border: 3px solid #0F7011;
+	position:fixed;
+	cursor: pointer;
+	background: url(../image/next.png) no-repeat center;
+	background-color: #808B96;
+}
+
 
 #load{
     width:100%;
