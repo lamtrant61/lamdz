@@ -61,8 +61,14 @@ var loop = false;
 
 var canvas_layer = L.layerGroup();
 canvas_layer.addTo(map)
-var scale = chroma.scale(['#026DF8','#0745F8','#A7FA84','#57FA23','#05E033','#FFD800','#FFA600','#FD8113','#FF1C00','#CC0071','#9900CC']).domain([10,15,20,25,30,35,40,45,55,60,65,70]);
-
+// '#34495E','#154360','#1A5276','#1F618D','#2980B9',
+// '#16A085','#117A65','#0E6655','#0B5345',
+// '#145A32','#196F3D','#1E8449','#27AE60',
+// '#F1C40F','#9A7D0A',
+// '#C0392B','#7B241C',
+// '#5B2C6F','#6C3483','#8E44AD'
+var scale = chroma.scale(['#34495E','#154360','#1A5276','#1F618D','#2980B9','#16A085','#117A65','#0E6655','#0B5345','#145A32','#196F3D','#1E8449','#27AE60','#F1C40F','#9A7D0A','#C0392B','#7B241C','#5B2C6F','#6C3483','#8E44AD']).domain([0.5,2,5,8,10,12,15,18,20,22,25,28,30,35,40,45,55,60,65,70]);
+//0,2,5,8,10,12,15,18,20,22,25,28,30,35,40,45,55,60,65,70
 function updatePolygon(){
 	for (let i = 0; i < window[allSet[currentSet]]; i++) {
 		var_name = allSet[currentSet] + "_" + checkNumber(i)
@@ -71,7 +77,7 @@ function updatePolygon(){
 }
 
 
-async function create_img(){
+function create_img(){
     img = new Image();
     img.src = allCmax[currentSet];
     img.onload = () => 
@@ -132,12 +138,12 @@ async function create_img(){
 		      interpolated.addTo(canvas_layer);
 		})
 	}
-	img.complete = () => updatePolygon();
 }
 
 async function updateImg(){
 	document.getElementById("cTime").innerText = String(curTime)+" UTC\n"+String(fTime_[currentSet]);
 	create_img();
+	updatePolygon();
 	await sleep(1000);
 	Loop();
 }
@@ -171,7 +177,35 @@ function playPause(){
 	}
 }
 
+async function next(){
+	if (!loop){
+		if (currentSet==allSet.length-1){
+			currentSet=0;
+		} else{
+			currentSet+=1;
+		}
+		await sleep(1500);
+		clear_layer();
+		await sleep(400);
+		updateImg();
 
+	}	
+}
+
+async function back(){
+	if (!loop){
+		if (currentSet==0){
+			currentSet=allSet.length-1;
+		} else{
+			currentSet-=1;
+		}
+		await sleep(1500);
+		clear_layer();
+		await sleep(400);
+		updateImg();
+
+	}	
+}
 
 
 
