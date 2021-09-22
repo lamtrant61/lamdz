@@ -71,7 +71,7 @@ function updatePolygon(){
 }
 
 
-function create_img(){
+async function create_img(){
     img = new Image();
     img.src = allCmax[currentSet];
     img.onload = () => 
@@ -132,13 +132,13 @@ function create_img(){
 		      interpolated.addTo(canvas_layer);
 		})
 	}
+	img.complete = () => updatePolygon();
 }
 
 async function updateImg(){
 	document.getElementById("cTime").innerText = String(curTime)+" UTC\n"+String(fTime_[currentSet]);
 	create_img();
-	await sleep(50);
-	updatePolygon();
+	await sleep(1000);
 	Loop();
 }
 
