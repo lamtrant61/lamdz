@@ -1,0 +1,28 @@
+lamtrant61.github.io
+git remote add origin https://github.com/lamtrant61/lamtrant61.github.io.git
+git remote add origin https://github.com/kedysan001/kedysan001.github.io.git
+git remote add origin https://github.com/lamtrant61/lamdz.github.io.git
+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
+
+git remote -v
+git remote rm origin
+
+download & install git
+cd folder
+git bash here
+
+git init //Khoi tao
+git add . (Co the add tung file) //Add file upload
+git remote add origin https://github.com/lamtrant61/lamtrant61.github.io.git //Ket noi repo
+git status //Kiem tra trang thai
+git commit -m "msg" //Ky ten
+git push -f origin master //Upload len web
+
+
+//Muon download data tu web git ve
+=> Create folder
+git init
+git remote add origin https://github.com/lamtrant61/lamtrant61.github.io.git
+git pull origin master //Download ve
+
+

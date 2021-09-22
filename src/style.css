@@ -1,0 +1,86 @@
+h1 {
+    z-index:9999;
+    color: red;
+}
+
+#lmao {
+	position: fixed;
+	left: 0;
+	top: 55%;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+    z-index:9999;
+}
+
+#cTime {
+	position: fixed;
+	right: 2%;
+	top: 2%;
+	font-size: 30px;
+	color: blueviolet;
+	text-align: right;
+    z-index:1000;
+}
+
+#map {
+	position: absolute; 
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0;
+}
+
+.leaflet-container {
+    background: #434954;
+    outline: 0;
+}
+
+#play_pause {
+	width: 65px;
+	height: 65px;
+	bottom: 3%;
+	left: 5%;
+	z-index: 9999;
+	border: 3px solid #0F7011;
+	position:fixed;
+	cursor: pointer;
+	background: url(../image/play_pause.png) no-repeat center;
+	background-color: #808B96;
+
+}
+
+#play_pause:hover {
+  background-color: #1C2833;
+}
+
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background-color: "#4a4a4a";
+    background:url("../image/lightning.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
+#loading {
+	top: 0; 
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #4a4a4a url('../image/weather.gif') no-repeat 50% 35%;
+	z-index: 9999;
+}
+
+#loading2 {
+	top: 0; 
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: url('../image/amo.png') no-repeat 50% 50%;
+	z-index: 9999;
+}
+
+
