@@ -34,7 +34,7 @@ minZoom: 6,
 
 
 var Lightning_Icon = L.icon({
-    iconUrl: 'icon/l.png',
+    iconUrl: 'image/l.png',
     iconSize:     [10, 10], // size of the icon
     popupAnchor: [0,-12],
 });
@@ -43,7 +43,7 @@ var the_marker = []
 function onMapClick(e) {
     lon = String(e.latlng).split(" ")[1].slice(0,8);
     lat = String(e.latlng).split(" ")[0].slice(7,14);
- 	the_marker = L.marker([lat, lon], {icon: Lightning_Icon, opacity: 1}).addTo(map);
+ 	the_marker = L.marker([lat, lon], {icon: Lightning_Icon, opacity: 0}).addTo(map);
  	the_marker.bindPopup('Lat: ' + lat + ', Lon:' + lon).openPopup();
 	}
 map.on('click', onMapClick);
