@@ -184,7 +184,6 @@ async function next(){
 		} else{
 			currentSet+=1;
 		}
-		await sleep(1500);
 		clear_layer();
 		await sleep(400);
 		updateImg();
@@ -199,7 +198,6 @@ async function back(){
 		} else{
 			currentSet-=1;
 		}
-		await sleep(1500);
 		clear_layer();
 		await sleep(400);
 		updateImg();
